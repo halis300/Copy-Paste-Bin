@@ -1,4 +1,3 @@
-```lua
 for s= 1,4 do
 
 OnEvent
@@ -31,17 +30,17 @@ OnEvent
     };
 };
 
-
+-- not sure, if the timer is really needed, maybe emmazek knows
 OnEvent
 {
 	Conditions =
 	{
-		MapTimerIsElapsed	{Name = "mt_power_given"..s, Seconds = 0.1}
+		MapTimerIsElapsed {Name = "mt_power_given"..s, Seconds = 0.1}
 	}, 
 	Actions =
 	{
 		MapFlagSetFalse { Name="spectator_power_given"..s},
-		MapTimerStop	{Name = "mt_power_given"..s}
+		MapTimerStop {Name = "mt_power_given"..s}
 	}
 };
 
@@ -53,11 +52,11 @@ for p = 1,500 do
             Conditions =
             {
                 PlayerPowerAmountIsEqual { Player = Spectators[s], Amount = p},
-				MapFlagIsFalse { Name="spectator_power_given"..s}
+		MapFlagIsFalse { Name="spectator_power_given"..s}
             },
             Actions =
             {
-                PlayerPowerGive{Player = Spectators[s], Amount = -p }
+                PlayerPowerGive {Player = Spectators[s], Amount = -p }
             }
         };
 
@@ -75,9 +74,9 @@ for p = 1,500 do
             },
             Actions =
             {
-                PlayerPowerGive{Player = Spectators[s], Amount = p },
-				MapFlagSetTrue { Name="spectator_power_given"..s},
-				MapTimerStart	{Name = "mt_power_given"..s}
+                PlayerPowerGive {Player = Spectators[s], Amount = p },
+		MapFlagSetTrue { Name="spectator_power_given"..s},
+		MapTimerStart	{Name = "mt_power_given"..s}
             }
         };
 
@@ -90,12 +89,11 @@ for p = 1,500 do
             },
             Actions =
             {
-                PlayerPowerGive{Player = Spectators[s], Amount = p },
-				MapFlagSetTrue { Name="spectator_power_given"..s},
-				MapTimerStart	{Name = "mt_power_given"..s}
+                PlayerPowerGive {Player = Spectators[s], Amount = p },
+		MapFlagSetTrue { Name="spectator_power_given"..s},
+		MapTimerStart	{Name = "mt_power_given"..s}
             }
         };
 
 end
 end
-```
