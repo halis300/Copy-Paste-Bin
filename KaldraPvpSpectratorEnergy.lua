@@ -63,7 +63,7 @@ for p = 1,500 do
 end
 
 -- give the spectators power
-for p = 1,500 do
+for p = 0,500 do
 
     OnEvent
         {
